@@ -1,4 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+$color-primary: #08513b;
+$color-primary-hover: rgb(71, 185, 182);
+$color-secondary: #edfffa;
+$color-secondary-hover: rgb(27, 117, 102);
+$color-tertiary: #FF8946; 
+$color-quaternary: #737578; 
+$color-quaternary-hover: #656e7d; 
+$color-quinary: #3693d1; 
+
+
 *{
     margin: 0;
     padding: 0;
@@ -8,14 +18,811 @@ a {
     text-decoration: none !important;
 }
 
+ng-select.form-control {
+  background-color: #fff;
+  border: 1px solid #ced4da;
+  border-radius: 0.375rem; // match bootstrap
+  min-height: calc(1.5em + 0.75rem + 2px); // typical Bootstrap input height
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+}
+
+.ng-select .ng-select-container {
+  background-color: #fff;
+}
+
+.ng-dropdown-panel {
+  background-color: white !important;
+  border: 1px solid #ced4da !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  border-radius: 0.375rem;
+}
+
+.ng-dropdown-panel .ng-option {
+  color: #212529;
+  padding: 0.5rem 0.75rem;
+}
+
+.ng-dropdown-panel .ng-option:hover,
+.ng-dropdown-panel .ng-option.ng-option-marked {
+  background-color: #f8f9fa; // soft hover
+}
 
 
-.ec-neutral {
-    color: #757575;
+.cursor-pointer {
+  cursor: pointer;
 }
-.bg-primary-800 {
-  background-color: #08513b !important;
+.mw-5 {
+  min-width: 5rem !important;
 }
-.bg-primary-50 {
-  background-color: #edfffa !important;
+.mw-10 {
+  min-width: 10rem !important;
 }
+.mw-15 {
+  min-width: 15rem !important;
+}
+.mw-20 {
+  min-width: 20rem !important;
+}
+
+// _____________________________________________ background-color variant
+.bg-color-primary {
+  background-color: $color-primary;
+}
+.bg-color-secondary {
+  background-color: $color-secondary;
+}
+.bg-color-tertiary {
+  background-color: $color-tertiary;
+}
+.bg-color-quaternary {
+  background-color: $color-quaternary;
+}
+.bg-color-quinary {
+  background-color: $color-quinary;
+}
+
+
+
+
+// _____________________________________________ text-color variant
+.tc-primary {
+  color: $color-primary;
+}
+.tc-secondary {
+  color: $color-secondary;
+}
+.tc-tertiary {
+  color: $color-tertiary;
+}
+.tc-quaternary {
+  color: $color-quaternary;
+}
+.tc-quinary {
+  color: $color-quinary;
+}
+
+
+
+
+
+// _____________________________________________ font-family variant
+.ff-poppins {
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+}
+.ff-roboto {
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+}
+.ff-inter {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+
+
+
+// _____________________________________________ font-weight variant
+.fw-100 {
+  font-weight: 100;
+}
+.fw-200 {
+  font-weight: 200;
+}
+.fw-300 {
+  font-weight: 300;
+}
+.fw-400 {
+  font-weight: 400;
+}
+.fw-500 {
+  font-weight: 500;
+}
+.fw-600 {
+  font-weight: 600;
+}
+.fw-700 {
+  font-weight: 700;
+}
+.fw-800 {
+  font-weight: 800;
+}
+.fw-900 {
+  font-weight: 900;
+}
+
+
+
+
+// _____________________________________________ font-size variant
+.fs-8 {
+  font-size: 8px;
+}
+.fs-10 {
+  font-size: 10px;
+}
+.fs-12 {
+  font-size: 12px;
+}
+.fs-14 {
+  font-size: 14px;
+}
+.fs-16 {
+  font-size: 16px;
+}
+.fs-18 {
+  font-size: 18px;
+}
+.fs-20 {
+  font-size: 20px;
+}
+.fs-22 {
+  font-size: 22px;
+}
+.fs-24 {
+  font-size: 24px;
+}
+.fs-26 {
+  font-size: 26px;
+}
+.fs-28 {
+  font-size: 28px;
+}
+.fs-30 {
+  font-size: 30px;
+}
+.fs-32 {
+  font-size: 32px;
+}
+.fs-34 {
+  font-size: 34px;
+}
+.fs-36 {
+  font-size: 36px;
+}
+.fs-38 {
+  font-size: 38px;
+}
+.fs-40 {
+  font-size: 40px;
+}
+.fs-42 {
+  font-size: 42px;
+}
+.fs-44 {
+  font-size: 44px;
+}
+.fs-46 {
+  font-size: 46px;
+}
+.fs-48 {
+  font-size: 48px;
+}
+.fs-50 {
+  font-size: 50px;
+}
+
+
+
+
+// _____________________________________________ button variant
+.btn-primary {
+  height: 35px;
+  background-color: $color-primary !important;
+  color: $color-tertiary !important;
+  padding-left: 25px;
+  padding-right: 25px;
+  cursor: pointer;
+  border-radius: 4px;
+  border: none;
+  transition: all ease-in-out 0.2s;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.btn-primary:hover {
+  background-color: $color-primary-hover !important;
+  transition: all ease-in-out 0.2s;
+}
+.btn-primary[disabled] {
+  cursor: not-allowed; 
+  opacity: 0.5; 
+}
+
+
+.btn-primary-outline {
+  height: 35px;
+  background-color: $color-tertiary !important;
+  color: $color-primary !important;
+  border: $color-primary 1px solid;
+  padding-left: 25px;
+  padding-right: 25px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all ease-in-out 0.2s;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.btn-primary-outline:hover {
+  background-color: $color-primary-hover !important;
+  color: #F7F7F7 !important;
+  transition: all ease-in-out 0.2s;
+}
+.btn-primary-outline[disabled] {
+  cursor: not-allowed; 
+  opacity: 0.5; 
+}
+
+.btn-secondary {
+  height: 35px;
+  background-color: $color-secondary !important;
+  color: $color-tertiary !important;
+  padding-left: 25px;
+  padding-right: 25px;
+  cursor: pointer;
+  border-radius: 4px;
+  border: none;
+  transition: all ease-in-out 0.2s;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.btn-secondary:hover {
+  background-color: $color-secondary-hover !important;
+  transition: all ease-in-out 0.2s;
+}
+.btn-secondary[disabled] {
+  cursor: not-allowed; 
+  opacity: 0.5; 
+}
+
+
+.btn-quaternary {
+  height: 35px;
+  background-color: $color-quaternary !important;
+  color: $color-tertiary !important;
+  padding-left: 25px;
+  padding-right: 25px;
+  cursor: pointer;
+  border-radius: 4px;
+  border: none;
+  transition: all ease-in-out 0.2s;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.btn-quaternary:hover {
+  background-color: $color-quaternary-hover !important;
+  transition: all ease-in-out 0.2s;
+}
+.btn-quaternary[disabled] {
+  cursor: not-allowed; 
+  opacity: 0.5; 
+}
+
+
+
+
+@media (max-width: 575.98px) { 
+    .sidebar {
+        display: none;
+    }
+
+    .mobile-sidebar {
+        width: 100%;
+        height: auto;
+        position: sticky;
+        top: 0;
+        z-index: 2;
+    }
+
+    .mobile-sidebar .description-header {
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 16.41px;
+        letter-spacing: 0.02em;
+        color: #FFFFFF;
+    }
+
+    .mobile-sidebar .header {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .mobile-sidebar .header .illustration {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+        margin: 10px 0 22px 0;
+        box-sizing: border-box;
+        width: 100%;
+    }
+    
+    .mobile-sidebar .header .illustration .logo {
+        height: 100%;
+    }
+    
+    .mobile-sidebar .header .line-vertical {
+        height: 30px;
+        width: 2px;
+        background-color: #FFFFFF;
+        box-sizing: border-box;
+    }
+    
+    .mobile-sidebar .header .description-header {
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 16.41px;
+        letter-spacing: 0.02em;
+        color: #FFFFFF;
+    }
+    
+    .mobile-sidebar .header .list-item {
+        border-radius: 8px;
+        height: 40px;
+        box-sizing: border-box;
+    }
+    
+    .mobile-sidebar .main  {
+        overflow-y: scroll;
+        margin-bottom: 20px;
+    }
+    
+    .mobile-sidebar .main::-webkit-scrollbar {
+        display: none;
+    }
+    
+    .mobile-sidebar .main .list-item-parent {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        padding: 10px 0px 10px 12px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .mobile-sidebar .main .list-item-parent .description {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 16px;
+        text-align: center;
+        color: #FFFFFF;
+        opacity: 25%;
+        transition: all ease-in 0.2s;
+    }
+    
+    .mobile-sidebar .main .list-item-parent .icon {
+        opacity: 25%;
+        margin-right: 12px;
+        transition: all ease-in 0.5s;
+    }
+    
+    .mobile-sidebar .main .list-item-parent .list-item-child {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 10px 12px;
+        width: 100%;
+        box-sizing: border-box;
+        margin-bottom: 5px;
+        cursor: pointer;
+    }
+    
+    .mobile-sidebar .main .list-item-parent .list-item-child .description {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        text-align: center;
+        line-height: 16px;
+        opacity: 25%;
+        transition: all ease-in 0.5s;
+    }
+    
+    .mobile-sidebar .main .list-item-parent:hover {
+        border-left: 2px solid #FFFFFF;
+        opacity: 100%;
+    }
+    
+    .mobile-sidebar .main .list-item-parent .list-item-child:hover {
+        border-left: 2px solid $color-quaternary;
+        opacity: 100%;
+    }
+    
+    .mobile-sidebar .main .list-item-parent .list-item-child {
+        border-left: 2px solid #FFFFFF;
+        opacity: 100%;
+    }
+    
+    .mobile-sidebar .main .list-item-parent .list-item-child.active {
+        border-left: 2px solid #84AFE2;
+        opacity: 100%;
+    }
+    
+    .mobile-sidebar .main .list-item-parent:hover .description,
+    .mobile-sidebar .main .list-item-parent:hover .icon {
+        color: $color-quaternary;
+        opacity: 100%;
+        transition: all ease-out 0.2s;
+    }
+    
+    .mobile-sidebar .main .list-item-parent .description,
+    .mobile-sidebar .main .list-item-parent .icon {
+        color: #FFFFFF;
+        opacity: 100%;
+        transition: all ease-out 0.2s;
+    }
+    
+    .mobile-sidebar .main .list-item-parent.active .description,
+    .mobile-sidebar .main .list-item-parent.active .icon {
+        color: $color-tertiary;
+        opacity: 100%;
+        transition: all ease-out 0.2s;
+    }
+    
+    .mobile-sidebar .main .list-item-parent .list-item-child:hover .description,
+    .mobile-sidebar .main .list-item-parent .list-item-child:hover .icon {
+        color: $color-quaternary;
+        opacity: 100%;
+        transition: all ease-out 0.2s;
+    }
+    
+    .mobile-sidebar .main .list-item-parent .list-item-child .description,
+    .mobile-sidebar .main .list-item-parent .list-item-child .icon {
+        color: #FFFFFF;
+        opacity: 100%;
+        transition: all ease-out 0.2s;
+    }
+    
+    .mobile-sidebar .main .list-item-parent.active .list-item-child.active .description,
+    .mobile-sidebar .main .list-item-parent.active .list-item-child.active .icon {
+        color: #84AFE2;
+        opacity: 100%;
+        transition: all ease-out 0.2s;
+    }
+       
+}
+@media (min-width: 576px) { 
+    .sidebar {
+        min-width: 230px;
+        height: 100vh;
+        padding: 16px;
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
+        transition: all ease-in-out 0.5s;
+    }
+
+    .mobile-sidebar {
+        display: none;
+    }
+       
+}
+
+
+
+// _____________________________________________ Start: Sidebar
+.wrapper-container {
+    display: flex;
+    height: 100vh;
+    background-color: #08513b;
+} 
+
+.main-content {
+    flex-grow: 1;
+    overflow-y: scroll;
+    padding-bottom: 20px;
+    background-color: white;
+}
+
+.sidebar .header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.sidebar .header .illustration {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    margin: 10px 0 22px 0;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.sidebar .header .illustration .logo {
+    height: 100%;
+}
+
+.sidebar .header .line-vertical {
+    height: 30px;
+    width: 2px;
+    background-color: #FFFFFF;
+    box-sizing: border-box;
+}
+
+.sidebar .header .description-header {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 16.41px;
+    letter-spacing: 0.02em;
+    color: #FFFFFF;
+}
+
+.sidebar .header .list-item {
+    border-radius: 8px;
+    height: 40px;
+    box-sizing: border-box;
+}
+
+.sidebar .main  {
+    overflow-y: scroll;
+    margin-bottom: 20px;
+}
+
+.sidebar .main::-webkit-scrollbar {
+    display: none;
+}
+
+.sidebar .main .list-item-parent {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    padding: 10px 0px 10px 12px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.sidebar .main .list-item-parent .description {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+    color: #FFFFFF;
+    opacity: 25%;
+    transition: all ease-in 0.2s;
+}
+
+.sidebar .main .list-item-parent .icon {
+    opacity: 25%;
+    margin-right: 12px;
+    transition: all ease-in 0.5s;
+}
+
+.sidebar .main .list-item-parent .list-item-child {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px 12px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+
+.sidebar .main .list-item-parent .list-item-child .description {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    text-align: center;
+    line-height: 16px;
+    opacity: 25%;
+    transition: all ease-in 0.5s;
+}
+
+.sidebar .main .list-item-parent:hover {
+    border-left: 2px solid #FFFFFF;
+    opacity: 100%;
+}
+
+.sidebar .main .list-item-parent .list-item-child:hover {
+    border-left: 2px solid $color-quaternary;
+    opacity: 100%;
+}
+
+.sidebar .main .list-item-parent .list-item-child {
+    border-left: 2px solid #FFFFFF;
+    opacity: 100%;
+}
+
+.sidebar .main .list-item-parent .list-item-child.active {
+    border-left: 2px solid #84AFE2;
+    opacity: 100%;
+}
+
+.sidebar .main .list-item-parent:hover .description,
+.sidebar .main .list-item-parent:hover .icon {
+    color: $color-quaternary;
+    opacity: 100%;
+    transition: all ease-out 0.2s;
+}
+
+.sidebar .main .list-item-parent .description,
+.sidebar .main .list-item-parent .icon {
+    color: #FFFFFF;
+    opacity: 100%;
+    transition: all ease-out 0.2s;
+}
+
+.sidebar .main .list-item-parent.active .description,
+.sidebar .main .list-item-parent.active .icon {
+    color: $color-tertiary;
+    opacity: 100%;
+    transition: all ease-out 0.2s;
+}
+
+.sidebar .main .list-item-parent .list-item-child:hover .description,
+.sidebar .main .list-item-parent .list-item-child:hover .icon {
+    color: $color-quaternary;
+    opacity: 100%;
+    transition: all ease-out 0.2s;
+}
+
+.sidebar .main .list-item-parent .list-item-child .description,
+.sidebar .main .list-item-parent .list-item-child .icon {
+    color: #FFFFFF;
+    opacity: 100%;
+    transition: all ease-out 0.2s;
+}
+
+.sidebar .main .list-item-parent.active .list-item-child.active .description,
+.sidebar .main .list-item-parent.active .list-item-child.active .icon {
+    color: #84AFE2;
+    opacity: 100%;
+    transition: all ease-out 0.2s;
+}
+// _____________________________________________ End: Sidebar
+
+
+// _____________________________________________ Start: Toggle Menu
+#menu-button {
+    width: 35px;
+    position: absolute;
+    overflow: hidden;
+    top: 7px;
+    left: 94%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all ease-out 0.5s;
+}
+
+#menu-label {
+    position: relative;
+    display: block;
+    cursor: pointer;
+}
+
+#menu-checkbox {
+    display: none;
+}
+
+#button-circle {
+    height: 30px;
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#button-circle:before {
+    content: "";
+    position: absolute;
+    height: 30px;
+    width: 100%;
+    border-radius: 50%;
+    background-color: #62a792;
+    z-index: 1;
+}
+
+#button-circle .icon {
+    z-index: 2;
+    color: #FFFFFF;
+    transition: transform 0.5s ease 0.5s;
+}
+// _____________________________________________ End: Toggle Menu
+
+
+// _____________________________________________ Start: Show Hide Sidebar
+.sidebar.hide {
+    max-width: 80px;
+    min-width: 0;
+    transition: all ease-in-out 0.5s;
+    padding: 5px;
+}
+
+.sidebar.hide .header {
+    flex-direction: column;
+}
+
+.sidebar.hide .header .description-header {
+    font-size: 14px;
+    text-align: center;
+    display: inline-block;
+}
+
+.sidebar.hide .header .illustration {
+    padding: 0px 10px;
+    margin: 10px 0 0 0;
+}
+
+.sidebar.hide .header .line-vertical {
+    margin: 10px 0px;
+}
+
+.sidebar.hide .main  {
+    margin-bottom: 35px;
+}
+
+.sidebar.hide .main .list-item-parent {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+    padding: 10px 12px;
+    margin-bottom: 8px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.sidebar.hide .main .list-item-parent .icon {
+    font-size: 25px;
+    transition: all ease-out 0.5s;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sidebar.hide .main .list-item-parent .icon:last-child {
+    display: none;
+}
+
+.sidebar.hide .main .list-item-parent .description {
+    display: none;
+}
+
+#menu-button.hide {
+    left: 88%;
+    transition: all ease-in 0.5s;
+}
+
+#menu-button.hide #button-circle .icon {
+    transform: rotate(180deg);
+}
+// _____________________________________________ End: Show Hide Sidebar
+
+

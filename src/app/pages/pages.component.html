@@ -1,8 +1,8 @@
 <div class="mobile-sidebar">
-    <nav class="navbar navbar-dark bg-primary-800">
+    <nav class="navbar navbar-dark bg-color-primary">
         <div class="container-fluid d-flex flex-row justify-content-between">
             <a routerLink="#">
-                <span class="description-header">
+                <span class="description-header ff-inter fw-700">
                     Library-App
                 </span>
             </a>
@@ -12,20 +12,7 @@
         </div>
     </nav>
     <div class="collapse" id="navbarToggleExternalContent">
-        <div class="main bg-primary-800 pt-2 pb-3" id="menu">
-           <!-- <div class="list-item-parent"
-                routerLink="/dashboard"
-                aria-current="page"
-                routerLinkActive="active"                                
-                #rlaDashboard="routerLinkActive"                                
-            >
-                <a routerLink="/dashboard" class="collapsed d-flex flex-row align-items-center w-100">
-                    <i class="bi bi-house-door icon"></i>
-                    <span class="description">
-                        Dashboard
-                    </span>
-                </a>
-            </div> -->
+        <div class="main bg-color-primary pt-2 pb-3" id="menu">
             <div class="list-item-parent"
                 routerLink="/pages/master/user"
                 aria-current="page"
@@ -79,7 +66,7 @@
             <div class="col list-item d-flex flex-column justify-content-center p-2">
                 <div class="col-10">
                     <a routerLink="#">
-                        <span class="description-header">
+                        <span class="description-header ff-inter fw-700">
                             Library-App
                         </span>
                     </a>
@@ -132,7 +119,7 @@
             </div>
 
             <div class="list-item-parent mt-auto">
-                <a routerLink="#"  class="collapsed d-flex flex-row align-items-center w-100">
+                <a routerLink="/"  class="collapsed d-flex flex-row align-items-center w-100">
                     <i class="bi bi-box-arrow-left icon"></i>
                     <span class="description">
                         Logout
@@ -141,7 +128,7 @@
             </div>
         </div>
     </div>
-    <div class="main-content bg-primary-50">
+    <div class="main-content bg-color-primary">
         <div class="d-flex flex-column">
             <div class="col-11 mx-auto">
                 <router-outlet></router-outlet>
