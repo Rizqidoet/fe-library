@@ -1,0 +1,151 @@
+<div class="mobile-sidebar">
+    <nav class="navbar navbar-dark bg-primary-800">
+        <div class="container-fluid d-flex flex-row justify-content-between">
+            <a routerLink="#">
+                <span class="description-header">
+                    Library-App
+                </span>
+            </a>
+            <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </nav>
+    <div class="collapse" id="navbarToggleExternalContent">
+        <div class="main bg-primary-800 pt-2 pb-3" id="menu">
+           <!-- <div class="list-item-parent"
+                routerLink="/dashboard"
+                aria-current="page"
+                routerLinkActive="active"                                
+                #rlaDashboard="routerLinkActive"                                
+            >
+                <a routerLink="/dashboard" class="collapsed d-flex flex-row align-items-center w-100">
+                    <i class="bi bi-house-door icon"></i>
+                    <span class="description">
+                        Dashboard
+                    </span>
+                </a>
+            </div> -->
+            <div class="list-item-parent"
+                routerLink="/pages/master/user"
+                aria-current="page"
+                routerLinkActive="active"                                
+                #rlaDashboard="routerLinkActive"                                
+            >
+                <a routerLink="/pages/master/user" class="collapsed d-flex flex-row align-items-center w-100">
+                    <i class="bi bi-person-gear icon"></i>
+                    <span class="description">
+                        User
+                    </span>
+                </a>
+            </div>
+
+            <div class="list-item-parent"
+                routerLink="/pages/master/catalogue"
+                aria-current="page"
+                routerLinkActive="active"                                
+                #rlaDashboard="routerLinkActive"                                
+            >
+                <a routerLink="/pages/master/catalogue" class="collapsed d-flex flex-row align-items-center w-100">
+                    <i class="bi bi-journals icon"></i>
+                    <span class="description">
+                        Catalogue
+                    </span>
+                </a>
+            </div>
+            <div class="list-item-parent mt-auto">
+                <a routerLink="/" class="collapsed d-flex flex-row align-items-center w-100">
+                    <i class="bi bi-box-arrow-left icon"></i>
+                    <span class="description">
+                        Logout
+                    </span>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+</div>
+<div class="wrapper-container">
+    <div class="sidebar {{ toggle ? 'hide' : '' }} position-relative">
+        <div id="menu-button" class="{{ toggle ? 'hide' : '' }}">
+            <input type="checkbox" id="menu-checkbox" #menuCheckbox>
+            <label for="menu-checkbox" id="menu-label" (click)="toggleMenu()">
+                <div id="button-circle">
+                    <i class="bi bi-chevron-left icon"></i>
+                </div>
+            </label>
+        </div>
+        <div class="header fs-14">
+            <div class="col list-item d-flex flex-column justify-content-center p-2">
+                <div class="col-10">
+                    <a routerLink="#">
+                        <span class="description-header">
+                            Library-App
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="main mt-3 d-flex flex-column h-100" id="menu">
+            <div class="list-item-parent"
+                routerLink="/pages/dashboard"
+                aria-current="page"
+                routerLinkActive="active"                                
+                #rlaDashboard="routerLinkActive"                                
+            >
+                <a routerLink="/pages/dashboard" class="collapsed d-flex flex-row align-items-center w-100">
+                    <i class="bi bi-house-door icon"></i>
+                    <span class="description">
+                        Dashboard
+                    </span>
+                </a>
+            </div>
+
+            <div class="list-item-parent"
+                routerLink="/pages/master/user"
+                aria-current="page"
+                routerLinkActive="active"                                
+                #rlaDashboard="routerLinkActive"                                
+            >
+                <a routerLink="/pages/master/user" class="collapsed d-flex flex-row align-items-center w-100">
+                    <i class="bi bi-person-gear icon"></i>
+                    <span class="description">
+                        User
+                    </span>
+                </a>
+            </div>
+
+            <div class="list-item-parent"
+                routerLink="/pages/master/catalogue"
+                aria-current="page"
+                routerLinkActive="active"                                
+                #rlaDashboard="routerLinkActive"                                
+            >
+                <a routerLink="/pages/master/catalogue" class="collapsed d-flex flex-row align-items-center w-100">
+                    <i class="bi bi-journals icon"></i>
+                    <span class="description">
+                        Catalogue
+                    </span>
+                </a>
+            </div>
+
+            <div class="list-item-parent mt-auto">
+                <a routerLink="#"  class="collapsed d-flex flex-row align-items-center w-100">
+                    <i class="bi bi-box-arrow-left icon"></i>
+                    <span class="description">
+                        Logout
+                    </span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="main-content bg-primary-50">
+        <div class="d-flex flex-column">
+            <div class="col-11 mx-auto">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </div>
+</div>
