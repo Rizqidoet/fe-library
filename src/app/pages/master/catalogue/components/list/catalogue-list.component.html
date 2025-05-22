@@ -1,1 +1,157 @@
-<p>catalogue-list works!</p>
+<div class="d-flex flex-wrap py-4">
+  @for (item of catalogue; track $index) {
+    <div class="col-12 col-md-6 col-lg-4 mb-2 p-3 p-md-1 p-lg-3">
+      <div class="card">
+        <div class="d-flex bg-color-secondary p-3">
+          <img src="assets/dummy-logo.png" class="card-img-top" alt="cover-book">
+        </div>
+        <div class="card-body">
+          <div class="d-inline-flex justify-content-end align-items-end mb-3">
+            <span class="badge rounded-pill {{ item.stok <= 10 ? 'text-bg-danger' : item.stok <= 20 ? 'text-bg-primary' : 'text-bg-success'}} ms-auto px-3 me-1">Stok: {{ item.stok || 0 }}</span>
+            <span class="badge rounded-pill text-bg-warning ms-auto px-3">{{ item.category || '-' }}</span>
+          </div>
+          <h5 class="card-title">{{ item.title || '-' }}</h5>
+          <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius unde eos voluptate, debitis obcaecati doloremque.</p>
+
+          <div class="d-flex">
+            <figure class="ms-auto mt-3">
+              <figcaption class="blockquote-footer">
+                Author: <cite title="Source Title">{{ item.author || '-' }}</cite>
+              </figcaption>
+            </figure>
+          </div>
+          <button class="btn btn-secondary px-4" [disabled]="item.stok <= 0" (click)="openDeleteModal(item)">Rent</button>
+        </div>
+      </div>
+    </div>
+  }
+</div>
+
+<div
+  class="modal fade"
+  id="popupFormRent"
+  tabindex="-1"
+  aria-labelledby="popupFormRentLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="popupFormRentLabel">Form Rent</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="d-flex flex-column p-3 border rounded-2 mb-3">
+          <div class="col-12 mb-3">
+            <span class="ff-inter fw-600 fs-18">Detail Book</span>
+          </div>
+
+          <div class="col-12 d-flex flex-row mb-2">
+            <div class="col-3">
+              <span class="ff-inter fw-400 fs-16">Title</span>
+            </div>
+            <div class="col">
+              : <span class="ff-inter fw-600 fs-18">{{ selectedCatalogue && selectedCatalogue.title || '-' }}</span>
+            </div>
+          </div>
+          <div class="col-12 d-flex flex-row mb-2">
+            <div class="col-3">
+              <span class="ff-inter fw-400 fs-16">Category</span>
+            </div>
+            <div class="col">
+              : <span class="ff-inter fw-600 fs-18">{{ selectedCatalogue && selectedCatalogue.category || '-' }}</span>
+            </div>
+          </div>
+          <div class="col-12 d-flex flex-row mb-2">
+            <div class="col-3">
+              <span class="ff-inter fw-400 fs-16">Author</span>
+            </div>
+            <div class="col">
+              : <span class="ff-inter fw-600 fs-18">{{ selectedCatalogue && selectedCatalogue.author || '-' }}</span>
+            </div>
+          </div>
+        </div>
+       <form  [formGroup]="rentForm" method="POST" (ngSubmit)="ngSubmit()" enctype="multipart/form-data" class="form-horizontal">
+        <div class="d-flex flex-column">
+
+          <div class="col-12 mb-3 d-flex flex-column form-group">
+              <div class="col-12">
+                  <label for="userId">Member <span class="text-danger">*</span></label>
+              </div>
+              <div class="col-12">
+                  <ng-select
+                    class="form-control"
+                    bindLabel="name"
+                    bindValue="id"
+                    placeholder="Select or search member"
+                    formControlName="userId"
+                    [items]="users"
+                    [searchable]="true"
+                    [clearable]="true"
+                    [typeahead]="userSubject"
+                    [loading]="userLoading"
+                    >
+                  </ng-select>
+                  <div *ngIf="rentForm.get('userId')?.invalid && rentForm.get('userId')?.touched" class="text-danger">
+                    <small *ngIf="rentForm.get('userId')?.errors?.['required']">member is required.</small>
+                  </div>
+              </div>
+          </div>
+          
+          <div class="col-12 mb-3 d-flex flex-column form-group">
+              <div class="col-12">
+                  <label for="rentDate">Start Date <span class="text-danger">*</span></label>
+              </div>
+              <div class="col-12">
+                  <input type="date" id="rentDate" name="rentDate" class="form-control" placeholder="rentDate" formControlName="rentDate">
+                  <div *ngIf="rentForm.get('rentDate')?.invalid && rentForm.get('rentDate')?.touched" class="text-danger">
+                    <small *ngIf="rentForm.get('rentDate')?.errors?.['required']">start date is required.</small>
+                  </div>
+              </div>
+          </div>
+
+          <div class="col-12 mb-3 d-flex flex-column form-group">
+              <div class="col-12">
+                  <label for="returnDate">End Date <span class="text-danger">*</span></label>
+              </div>
+              <div class="col-12">
+                  <input type="date" id="returnDate" name="returnDate" class="form-control" placeholder="returnDate" formControlName="returnDate">
+                  <div *ngIf="rentForm.get('returnDate')?.invalid && rentForm.get('returnDate')?.touched" class="text-danger">
+                    <small *ngIf="rentForm.get('returnDate')?.errors?.['required']">end date is required.</small>
+                  </div>
+              </div>
+          </div>
+        </div>
+      </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary-outline" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" (click)="ngSubmit()" class="btn btn-secondary">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div
+  class="modal fade"
+  id="confirmationModal"
+  tabindex="-1"
+  aria-labelledby="confirmationModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="confirmationModalLabel">Rent Success</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Your request successfully
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="backToList()">Ok</button>
+      </div>
+    </div>
+  </div>
+</div>

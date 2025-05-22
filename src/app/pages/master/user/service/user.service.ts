@@ -4,21 +4,19 @@ import { Params } from '@angular/router';
 import { map, Observable } from 'rxjs';
 import { UserDto } from '../model/user.model';
 import { Paging, ResponseEntity, ResponsePagination } from '../../../../shared/dto/global-model.model';
+import { environment as env } from '../../../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  private baseUrl = 'http://localhost:3000/api';
+  private baseUrl = env.apiBaseUrl;;
+  
 
   constructor(
     private http: HttpClient
   ) { }
-
-  // list2(params: Params): Observable<{ users: UserDto[] }> {
-  //   return this.http.get<{ users: UserDto[]}>(`${this.baseUrl}/users`, { params });
-  // }
 
   list(params?: Params): Observable<[UserDto[], Paging]> {
     return this.http.get<ResponsePagination<UserDto[]>>(`${this.baseUrl}/users`, { params }).pipe(
@@ -47,29 +45,4 @@ export class UserService {
   delete(id: number): Observable<void> {
     return this.http.delete<void>(`${this.baseUrl}/users/${id}`);
   }
-
-
-//Json POST and PUT
-// create2(payload: UserDto): Observable<ResponseEntity<UserDto>> {
-//   return this.http.post<ResponseEntity<UserDto>>(`${this.baseUrl}/users`).pipe(
-//       map(({data}: ResponseEntity<UserDto>) => data)
-//     );
-
-//     return this.http.post('INCUBATION_CREATE', payload).pipe(
-//       catchError(this.handleError),
-//       map((response: ResponseEntity<UserDto>) => {
-//         return response;
-//       }),
-//     );
-//   }
-
-// update2(payload: PackageModel, id: string): Observable<IApiResponse<CourseModel>> {
-//     payload.id = id;
-//     return this.http.put('UPDATE_PACKAGES', payload).pipe(
-//       catchError(this.handleError),
-//       map((response: IApiResponse<CourseModel>) => {
-//         return response;
-//       }),
-//     );
-//   }
 }

@@ -759,8 +759,8 @@ ng-select.form-control {
 
 // _____________________________________________ Start: Show Hide Sidebar
 .sidebar.hide {
-    max-width: 80px;
-    min-width: 0;
+    max-width: 85px;
+    min-width: 85px;
     transition: all ease-in-out 0.5s;
     padding: 5px;
 }
