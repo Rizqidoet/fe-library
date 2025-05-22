@@ -1,12 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 $color-primary: #08513b;
 $color-primary-hover: rgb(71, 185, 182);
-$color-secondary: #edfffa;
-$color-secondary-hover: rgb(27, 117, 102);
+$color-secondary: rgb(27, 117, 102);
+$color-secondary-hover: #edfffa;
 $color-tertiary: #FF8946; 
 $color-quaternary: #737578; 
 $color-quaternary-hover: #656e7d; 
-$color-quinary: #3693d1; 
+$color-quinary: #b4ddd2; 
 
 
 *{
@@ -255,7 +255,7 @@ ng-select.form-control {
 
 .btn-primary-outline {
   height: 35px;
-  background-color: $color-tertiary !important;
+  background-color: $color-primary-hover !important;
   color: $color-primary !important;
   border: $color-primary 1px solid;
   padding-left: 25px;
@@ -281,7 +281,7 @@ ng-select.form-control {
 .btn-secondary {
   height: 35px;
   background-color: $color-secondary !important;
-  color: $color-tertiary !important;
+  color: white !important;
   padding-left: 25px;
   padding-right: 25px;
   cursor: pointer;
@@ -295,6 +295,7 @@ ng-select.form-control {
 }
 .btn-secondary:hover {
   background-color: $color-secondary-hover !important;
+  color: $color-primary !important;
   transition: all ease-in-out 0.2s;
 }
 .btn-secondary[disabled] {

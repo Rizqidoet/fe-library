@@ -1,1 +1,94 @@
-<p>user-form works!</p>
+<div class="d-flex flex-column vh-100 mt-3">
+  <div class="col-12 bg-color-primary rounded-top p-3 d-flex flex-column flex-md-row justify-content-between align-items-center">
+    <span class="ff-poppins fw-600 fs-28 text-white me-auto">
+      {{ id ? 'Detail' : 'Form' }} User Management
+    </span>
+  </div>
+  <div class="col-12 bg-color-quinary rounded-bottom p-3">
+    <form  [formGroup]="userForm" method="POST" (ngSubmit)="ngSubmit()" enctype="multipart/form-data" class="form-horizontal">
+      <div class="d-flex flex-column">
+        <div class="col-12 mb-3 d-flex flex-column flex-md-row form-group">
+            <div class="col-12 col-md-3 col-lg-2">
+                <label for="name">Name <span class="text-danger">*</span></label>
+            </div>
+            <div class="col">
+                <input type="text" id="name" name="name" class="form-control" placeholder="name" formControlName="name">
+                <div *ngIf="userForm.get('name')?.invalid && userForm.get('name')?.touched" class="text-danger">
+                  <small *ngIf="userForm.get('name')?.errors?.['required']">name is required.</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 mb-3 d-flex flex-column flex-md-row form-group">
+          <div class="col-12 col-md-3 col-lg-2">
+              <label for="email">Email <span class="text-danger">*</span></label>
+          </div>
+          <div class="col">
+              <input type="text" id="email" name="email" class="form-control" placeholder="email" formControlName="email">
+              <div *ngIf="userForm.get('email')?.invalid && userForm.get('email')?.touched" class="text-danger">
+                <small *ngIf="userForm.get('email')?.errors?.['required']">Email is required.</small>
+                <small *ngIf="userForm.get('email')?.errors?.['email']">Please enter a valid email address.</small>
+              </div>
+          </div>
+        </div>
+
+        <div class="col-12 mb-3 d-flex flex-column flex-md-row form-group">
+          <div class="col-12 col-md-3 col-lg-2">
+              <label for="status">status <span class="text-danger">*</span></label>
+          </div>
+          <div class="col">
+            <ng-select
+              class="form-control"
+              [items]="filteredRoles"
+              bindLabel="name"
+              bindValue="value"
+              placeholder="Select or search roles"
+              [searchable]="true"
+              formControlName="role"
+              [clearable]="true">
+            </ng-select>
+            <div *ngIf="userForm.get('role')?.invalid && userForm.get('role')?.touched" class="text-danger">
+              <small *ngIf="userForm.get('role')?.errors?.['required']">role is required.</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 mb-3 d-flex flex-column flex-md-row justify-content-end">
+          <div class="col-12 col-md-3 col-lg-2 me-2 mb-2 mb-md-0">
+            <a class="btn-primary-outline ff-poppins" routerLink="/pages/master/user">
+              Cancel
+            </a>
+          </div>
+          <div class="col-12 col-md-3 col-lg-2">
+            <button type="submit" class="w-100 px-5 btn-secondary ff-poppins">
+              Save
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div
+  class="modal fade"
+  id="confirmationModal"
+  tabindex="-1"
+  aria-labelledby="confirmationModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="confirmationModalLabel">{{ id ? 'Update Success' : 'Create Success'}}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Your request successfully
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="backToList()">Ok</button>
+      </div>
+    </div>
+  </div>
+</div>
