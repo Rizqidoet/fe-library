@@ -1,31 +1,54 @@
-<div class="d-flex flex-wrap py-4">
-  @for (item of catalogue; track $index) {
-    <div class="col-12 col-md-6 col-lg-4 mb-2 p-3 p-md-1 p-lg-3">
-      <div class="card">
-        <div class="d-flex bg-color-secondary p-3">
-          <img src="assets/dummy-logo.png" class="card-img-top" alt="cover-book">
-        </div>
-        <div class="card-body">
-          <div class="d-inline-flex justify-content-end align-items-end mb-3">
-            <span class="badge rounded-pill {{ item.stok <= 10 ? 'text-bg-danger' : item.stok <= 20 ? 'text-bg-primary' : 'text-bg-success'}} ms-auto px-3 me-1">Stok: {{ item.stok || 0 }}</span>
-            <span class="badge rounded-pill text-bg-warning ms-auto px-3">{{ item.category || '-' }}</span>
+@if (!catalogue) {
+  <span class="ff-inter fw-500 text-muted">
+    there is no data..
+  </span>
+} @else {
+  <div class="p-3 d-flex flex-column flex-md-row justify-content-between align-items-center">
+    <span class="ff-poppins fw-600 fs-28 tc-primary me-auto">
+      Catalogue List
+    </span>
+    <a routerLink="form" class="btn-secondary ff-poppins ms-auto ms-md-0 mt-3 mt-md-0">
+      add catalogue
+    </a>
+  </div>
+  <div class="d-flex flex-wrap py-4">
+    @for (item of catalogue; track $index) {
+      <div class="col-12 col-md-6 col-lg-4 mb-2 p-3 p-md-1 p-lg-3">
+        <div class="card">
+          <div class="d-flex bg-color-secondary p-3">
+            <img src="assets/dummy-logo.png" class="card-img-top" alt="cover-book">
           </div>
-          <h5 class="card-title">{{ item.title || '-' }}</h5>
-          <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius unde eos voluptate, debitis obcaecati doloremque.</p>
-
-          <div class="d-flex">
-            <figure class="ms-auto mt-3">
-              <figcaption class="blockquote-footer">
-                Author: <cite title="Source Title">{{ item.author || '-' }}</cite>
-              </figcaption>
-            </figure>
+          <div class="card-body">
+            <div class="d-flex flex-row justify-content-between">
+              <div class="col">
+                <div class="d-inline-flex justify-content-end align-items-end mb-3">
+                  <span class="badge {{ item.stok <= 10 ? 'text-bg-danger' : item.stok <= 20 ? 'text-bg-primary' : 'text-bg-success'}} ms-auto px-3 me-1">Stok: {{ item.stok || 0 }}</span>
+                  <span class="badge text-bg-warning ms-auto px-3">{{ item.category || '-' }}</span>
+                </div>
+              </div>
+              <div class="col-2">
+                <a routerLink="form/{{ item.id }}" class="btn btn-primary-outline position-relative ms-auto">
+                  <i class="bi bi-pencil-fill"></i>
+                </a>
+              </div>
+            </div>
+            <h5 class="card-title">{{ item.title || '-' }}</h5>
+            <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius unde eos voluptate, debitis obcaecati doloremque.</p>
+  
+            <div class="d-flex">
+              <figure class="ms-auto mt-3">
+                <figcaption class="blockquote-footer">
+                  Author: <cite title="Source Title">{{ item.author || '-' }}</cite>
+                </figcaption>
+              </figure>
+            </div>
+            <button class="btn btn-secondary px-4" [disabled]="item.stok <= 0" (click)="openDeleteModal(item)">Rent</button>
           </div>
-          <button class="btn btn-secondary px-4" [disabled]="item.stok <= 0" (click)="openDeleteModal(item)">Rent</button>
         </div>
       </div>
-    </div>
-  }
-</div>
+    }
+  </div>
+}
 
 <div
   class="modal fade"

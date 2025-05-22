@@ -1,1 +1,96 @@
-<p>catalogue-form works!</p>
+<div class="d-flex flex-column vh-100 mt-3">
+  <div class="col-12 bg-color-primary rounded-top p-3 d-flex flex-column flex-md-row justify-content-between align-items-center">
+    <span class="ff-poppins fw-600 fs-28 text-white me-auto">
+      {{ id ? 'Detail' : 'Form' }} Catalogue Management
+    </span>
+  </div>
+  <div class="col-12 bg-color-quinary rounded-bottom p-3">
+    <form  [formGroup]="catalogueForm" method="POST" (ngSubmit)="ngSubmit()" enctype="multipart/form-data" class="form-horizontal">
+      <div class="d-flex flex-column">
+        <div class="col-12 mb-3 d-flex flex-column flex-md-row form-group">
+            <div class="col-12 col-md-3 col-lg-2">
+                <label for="title">title <span class="text-danger">*</span></label>
+            </div>
+            <div class="col">
+                <input type="text" id="title" name="title" class="form-control" placeholder="title" formControlName="title">
+                <div *ngIf="catalogueForm.get('title')?.invalid && catalogueForm.get('title')?.touched" class="text-danger">
+                  <small *ngIf="catalogueForm.get('title')?.errors?.['required']">title is required.</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 mb-3 d-flex flex-column flex-md-row form-group">
+          <div class="col-12 col-md-3 col-lg-2">
+              <label for="category">Category <span class="text-danger">*</span></label>
+          </div>
+          <div class="col">
+              <input type="text" id="category" name="category" class="form-control" placeholder="category" formControlName="category">
+              <div *ngIf="catalogueForm.get('category')?.invalid && catalogueForm.get('category')?.touched" class="text-danger">
+                <small *ngIf="catalogueForm.get('category')?.errors?.['required']">category is required.</small>
+              </div>
+          </div>
+        </div>
+
+        <div class="col-12 mb-3 d-flex flex-column flex-md-row form-group">
+          <div class="col-12 col-md-3 col-lg-2">
+              <label for="stok">Stok <span class="text-danger">*</span></label>
+          </div>
+          <div class="col">
+              <input type="number" id="stok" name="stok" class="form-control" placeholder="stok" formControlName="stok">
+              <div *ngIf="catalogueForm.get('stok')?.invalid && catalogueForm.get('stok')?.touched" class="text-danger">
+                <small *ngIf="catalogueForm.get('stok')?.errors?.['required']">stok is required.</small>
+              </div>
+          </div>
+        </div>
+
+        <div class="col-12 mb-3 d-flex flex-column flex-md-row form-group">
+          <div class="col-12 col-md-3 col-lg-2">
+              <label for="author">author <span class="text-danger">*</span></label>
+          </div>
+          <div class="col">
+              <input type="text" id="author" name="author" class="form-control" placeholder="author" formControlName="author">
+              <div *ngIf="catalogueForm.get('author')?.invalid && catalogueForm.get('author')?.touched" class="text-danger">
+                <small *ngIf="catalogueForm.get('author')?.errors?.['required']">author is required.</small>
+              </div>
+          </div>
+        </div>
+
+        <div class="col-12 mb-3 d-flex flex-column flex-md-row justify-content-end">
+          <div class="col-12 col-md-3 col-lg-2 me-2 mb-2 mb-md-0">
+            <a class="btn-primary-outline ff-poppins" routerLink="/pages/master/catalogue">
+              Cancel
+            </a>
+          </div>
+          <div class="col-12 col-md-3 col-lg-2">
+            <button type="submit" class="w-100 px-5 btn-secondary ff-poppins">
+              Save
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div
+  class="modal fade"
+  id="confirmationModal"
+  tabindex="-1"
+  aria-labelledby="confirmationModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="confirmationModalLabel">{{ id ? 'Update Success' : 'Create Success'}}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Your request successfully
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="backToList()">Ok</button>
+      </div>
+    </div>
+  </div>
+</div>

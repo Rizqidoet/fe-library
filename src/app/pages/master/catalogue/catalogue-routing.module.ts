@@ -13,7 +13,7 @@ const routes: Routes = [
       component: CatalogueFormComponent,
     },
     {
-      path: ':id',
+      path: 'form/:id',
       component: CatalogueFormComponent,
     }
 ];
