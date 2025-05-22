@@ -24,6 +24,10 @@ export const routes: Routes = [
       {
         path: 'master',
         loadChildren: () => import('./pages/master/master.module').then(m => m.MasterModule),
+      },
+      {
+        path: 'transaction',
+        loadChildren: () => import('./pages/transaction/transaction.module').then(m => m.TransactionModule),
       }
     ]
   },
