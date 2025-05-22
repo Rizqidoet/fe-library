@@ -16,7 +16,7 @@
             <th class="mw-15">Return Date</th>
             <th class="mw-15">Status</th>
             <th class="mw-15">Description</th>
-            <th class="text-center mw-15">Action</th>
+            <th class="text-center">Action</th>
           </tr>
         </thead>
         <ng-template #emptyRents>
@@ -47,8 +47,7 @@
                 <span class="badge text-bg-success">Not yet Overdue</span>
               }
             </td>
-            <td class="text-center d-flex flex-row">
-              <a routerLink="form/{{ rent.id }}" class="btn-secondary me-1">edit</a>
+            <td class="text-center">
               <button class="btn-primary-outline" (click)="openDeleteModal(rent)">delete</button>
             </td>
           </tr>
